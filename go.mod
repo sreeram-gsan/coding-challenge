@@ -1,4 +1,4 @@
-module coding-challenge
+module github.com/sreeram-gsan/coding-challenge
 
 go 1.19
 
