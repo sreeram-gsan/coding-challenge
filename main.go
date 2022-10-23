@@ -10,6 +10,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	_ "github.com/sreeram-gsan/coding-challenge/docs"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
@@ -22,6 +23,13 @@ type item struct {
 	UnitPrice float64 `json:"unit_price"`
 }
 
+// GetItems      godoc
+// @Summary      Get items array
+// @Description  Responds with the list of all items as JSON.
+// @Tags         items
+// @Produce      json
+// @Success      200  {array}  item
+// @Router       /items [get]
 func getItems(c *gin.Context) {
 	var items = []item{}
 	getDBConnection().Table("inventory").Find(&items)
