@@ -33,7 +33,7 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost:8080",
 	BasePath:         "/inventory/v1",
 	Schemes:          []string{},
-	Title:            "Tesla Inventory API",
+	Title:            "Inventory API",
 	Description:      "An inventory management API with Go using Gin framework.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
