@@ -1,0 +1,16 @@
+basePath: /inventory/v1
+host: localhost:8080
+info:
+  contact:
+    email: srga8641@colorado.edu
+    name: Sreeram Ganesan
+    url: https://sreeramganesan.com
+  description: An inventory management API with Go using Gin framework.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://sreeramganesan.com
+  title: Tesla Inventory API
+  version: "1.0"
+paths: {}
+swagger: "2.0"

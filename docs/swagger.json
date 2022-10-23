@@ -1,0 +1,21 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "An inventory management API with Go using Gin framework.",
+        "title": "Tesla Inventory API",
+        "termsOfService": "https://sreeramganesan.com",
+        "contact": {
+            "name": "Sreeram Ganesan",
+            "url": "https://sreeramganesan.com",
+            "email": "srga8641@colorado.edu"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/inventory/v1",
+    "paths": {}
+}

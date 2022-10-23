@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    image: mysql/mysql-server:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: Password@123
+      MYSQL_DATABASE: inventory_database
+    networks:
+      - inventory_network
+
+  web:
+    build: server/.
+    ports:
+      - "8080:8080"
+    volumes:
+      - ".:/app"
+    depends_on:
+      - db
+    networks:
+      - inventory_network
+
+networks:
+  inventory_network:
+    driver: bridge
