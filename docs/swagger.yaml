@@ -1,4 +1,16 @@
 basePath: /inventory/v1
+definitions:
+  main.item:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      quantity:
+        type: integer
+      unit_price:
+        type: number
+    type: object
 host: localhost:8080
 info:
   contact:
@@ -12,5 +24,20 @@ info:
   termsOfService: https://sreeramganesan.com
   title: Inventory API
   version: "1.0"
-paths: {}
+paths:
+  /items:
+    get:
+      description: Responds with the list of all items as JSON.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.item'
+            type: array
+      summary: Get items array
+      tags:
+      - items
 swagger: "2.0"
