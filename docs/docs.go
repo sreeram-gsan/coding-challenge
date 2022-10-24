@@ -105,6 +105,33 @@ const docTemplate = `{
                     }
                 }
             },
+            "delete": {
+                "description": "Takes an id and deletes its value in DB.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "items"
+                ],
+                "summary": "Deletes an existing item by Id",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "delete item by id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.item"
+                        }
+                    }
+                }
+            },
             "patch": {
                 "description": "Takes a item JSON and updates its value in DB.",
                 "produces": [

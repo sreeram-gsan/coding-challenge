@@ -74,6 +74,14 @@ func addItems(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newItem)
 }
 
+// deleteItemById             godoc
+// @Summary      Deletes an existing item by Id
+// @Description  Takes an id and deletes its value in DB.
+// @Tags         items
+// @Produce      json
+// @Param        id  path integer true  "delete item by id"
+// @Success      200   {object}  item
+// @Router       /items/{id} [delete]
 func deleteItemById(c *gin.Context) {
 	var result_item item
 	id := c.Param("id")

@@ -60,6 +60,24 @@ paths:
       tags:
       - items
   /items/{id}:
+    delete:
+      description: Takes an id and deletes its value in DB.
+      parameters:
+      - description: delete item by id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.item'
+      summary: Deletes an existing item by Id
+      tags:
+      - items
     get:
       description: Returns the item whose id value matches the provided id.
       parameters:
