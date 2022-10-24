@@ -22,3 +22,8 @@ Your application should be packaged as docker container (and docker compose if y
 
 ## Working Demo (Hosted in Linode)
 http://cc.sreeramganesan.com:8080/docs/index.html
+
+## Run this project locally
+1. Clone this repository
+2. Run ```cd coding-challenge```
+3. Run ```docker-compose up -d --build```
