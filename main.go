@@ -220,6 +220,9 @@ func main() {
 	// Create router and register all end points.
 	router := gin.Default()
 
+	// Allow CORS. Only for demo purpose.
+	router.Use(CORSMiddleware())
+
 	// Route for Swagger docs.
 	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	prefix := os.Getenv("SERVER_ENDPOINT_PREFIX_V1")
