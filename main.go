@@ -105,8 +105,16 @@ func addItems(c *gin.Context) {
 func deleteItemById(c *gin.Context) {
 	var result_item item
 	id := c.Param("id")
-	getDBConnection().Table("inventory").Delete(&item{}, id)
-		c.IndentedJSON(http.StatusOK, result_item)
+	res := getDBConnection().Table("inventory").First(&result_item, "id = ?", id)
+
+	// If record is not found, return a message
+	err := res.Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		c.IndentedJSON(http.StatusOK, ResponseMessage{Message: "Record not found!"})
+	} else {
+		getDBConnection().Table("inventory").Delete(&item{}, id)
+		c.IndentedJSON(http.StatusOK, ResponseMessage{Message: "Record deleted!"})
+	}
 }
 
 // patchItems             godoc
@@ -129,11 +137,15 @@ func patchItems(c *gin.Context) {
 		return
 	}
 
-	// createInventoryTable(db)
-	getDBConnection().Table("inventory").First(&existingItem, "id = ?", id)
-	getDBConnection().Table("inventory").Save(&updatedItem)
-
-	c.IndentedJSON(http.StatusCreated, updatedItem)
+	// If record is not found, return a message
+	res := getDBConnection().Table("inventory").First(&existingItem, "id = ?", id)
+	patch_err := res.Error
+	if errors.Is(patch_err, gorm.ErrRecordNotFound) {
+		c.IndentedJSON(http.StatusOK, ResponseMessage{Message: "Record not found!"})
+	} else {
+		getDBConnection().Table("inventory").Save(&updatedItem)
+		c.IndentedJSON(http.StatusCreated, updatedItem)
+	}
 }
 
 // getItemsAsCSV             godoc
