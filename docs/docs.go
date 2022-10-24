@@ -213,9 +213,8 @@ const docTemplate = `{
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version: "1.0",
-	// Harcoding this for demo purpose. For local development set this to localhost
-	Host:             "173.255.220.177:8080",
+	Version:          "1.0",
+	Host:             "localhost:8080",
 	BasePath:         "/inventory/v1",
 	Schemes:          []string{},
 	Title:            "Inventory API",
