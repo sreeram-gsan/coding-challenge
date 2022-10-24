@@ -77,6 +77,26 @@ const docTemplate = `{
                 }
             }
         },
+        "/items/csv": {
+            "get": {
+                "description": "Downloads a csv file with existing data.",
+                "produces": [
+                    "text/csv"
+                ],
+                "tags": [
+                    "items"
+                ],
+                "summary": "Downloads a csv file with existing data.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
+        },
         "/items/{id}": {
             "get": {
                 "description": "Returns the item whose id value matches the provided id.",

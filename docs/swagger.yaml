@@ -120,4 +120,17 @@ paths:
       summary: Update an existing item
       tags:
       - items
+  /items/csv:
+    get:
+      description: Downloads a csv file with existing data.
+      produces:
+      - text/csv
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: text
+      summary: Downloads a csv file with existing data.
+      tags:
+      - items
 swagger: "2.0"

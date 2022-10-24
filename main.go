@@ -116,6 +116,13 @@ func patchItems(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, updatedItem)
 }
 
+// getItemsAsCSV             godoc
+// @Summary      Downloads a csv file with existing data.
+// @Description  Downloads a csv file with existing data.
+// @Tags         items
+// @Produce      text/csv
+// @Success      200   {text}  item
+// @Router       /items/csv [GET]
 func getItemsAsCSV(c *gin.Context) {
 	// Getting http writer from gin context.
 	var w http.ResponseWriter = c.Writer
