@@ -23,7 +23,7 @@ type item struct {
 	UnitPrice float64 `json:"unit_price"`
 }
 
-// GetItems      godoc
+// getItems      godoc
 // @Summary      Get items array
 // @Description  Responds with the list of all items as JSON.
 // @Tags         items
@@ -36,6 +36,14 @@ func getItems(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, items)
 }
 
+// getItemById      godoc
+// @Summary      Get a single item by id
+// @Description  Returns the item whose id value matches the provided id.
+// @Tags         items
+// @Produce      json
+// @Param        id  path integer true  "search item by id"
+// @Success      200  {object} item
+// @Router       /items/{id} [get]
 func getItemById(c *gin.Context) {
 	var result_item item
 	id := c.Param("id")

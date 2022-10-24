@@ -40,6 +40,35 @@
                     }
                 }
             }
+        },
+        "/items/{id}": {
+            "get": {
+                "description": "Returns the item whose id value matches the provided id.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "items"
+                ],
+                "summary": "Get a single item by id",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "search item by id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.item"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {

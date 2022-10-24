@@ -40,4 +40,23 @@ paths:
       summary: Get items array
       tags:
       - items
+  /items/{id}:
+    get:
+      description: Returns the item whose id value matches the provided id.
+      parameters:
+      - description: search item by id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.item'
+      summary: Get a single item by id
+      tags:
+      - items
 swagger: "2.0"
