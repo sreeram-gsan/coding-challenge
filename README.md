@@ -15,7 +15,6 @@ Create a simple CRUD app built with Go and Gin. This let you update track your i
 | localhost:8080/item/1 | DELETE |Delete an item by its ID. Returns 200 if item was removed.|
 | localhost:8080/item/2 | PATCH | Body needs to contain a json with name, quantity and unit_price. The info of this item will be changed. Returns 200.|
 | localhost:8080/item/csv | GET | Returns a CSV file.|
-| | |
 
 Your application should be packaged as docker container (and docker compose if you have multiple containers).
 
