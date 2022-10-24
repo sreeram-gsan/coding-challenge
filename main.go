@@ -150,12 +150,12 @@ func main() {
 
 	// Route for Swagger docs.
 	router.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-
-	router.GET("/items", getItems)
-	router.GET("/items/:id", getItemById)
-	router.GET("items/csv", getItemsAsCSV)
-	router.POST("/items", addItems)
-	router.PATCH("items/:id", patchItems)
-	router.DELETE("/items/:id", deleteItemById)
+	prefix := os.Getenv("SERVER_ENDPOINT_PREFIX_V1")
+	router.GET(prefix+"/items", getItems)
+	router.GET(prefix+"/items/:id", getItemById)
+	router.GET(prefix+"/items/csv", getItemsAsCSV)
+	router.POST(prefix+"/items", addItems)
+	router.PATCH(prefix+"/items/:id", patchItems)
+	router.DELETE(prefix+"/items/:id", deleteItemById)
 	router.Run(os.Getenv("SERVER_HOST") + ":" + os.Getenv("SERVER_PORT"))
 }
