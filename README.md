@@ -27,3 +27,10 @@ http://cc.sreeramganesan.com:8080/docs/index.html
 1. Clone this repository
 2. Run ```cd coding-challenge```
 3. Run ```docker-compose up -d --build```
+
+## Tools/Technologies Used
+1. Language: Go
+2. Web Server: Gin
+3. Database: MySQL
+4. ORM: gorm
+5. API Documentation: Swagger
