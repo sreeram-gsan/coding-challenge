@@ -1,4 +1,4 @@
-# Coding-Channelge
+# Coding-challenge
 
 ## Requirement
 
