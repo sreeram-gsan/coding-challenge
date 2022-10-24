@@ -9,6 +9,7 @@ import (
 	"os"
 	"reflect"
 	"strconv"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/sreeram-gsan/coding-challenge/docs"
@@ -83,9 +84,14 @@ func addItems(c *gin.Context) {
 	}
 
 	// createInventoryTable(db)
-	getDBConnection().Table("inventory").Create(newItem)
+	res := getDBConnection().Table("inventory").Create(newItem)
+	create_err := res.Error
 
-	c.IndentedJSON(http.StatusCreated, newItem)
+	if create_err != nil && strings.Contains(create_err.Error(), "1062") {
+		c.IndentedJSON(http.StatusOK, ResponseMessage{Message: "Duplicate entry!"})
+	} else {
+		c.IndentedJSON(http.StatusCreated, newItem)
+	}
 }
 
 // deleteItemById             godoc
@@ -100,7 +106,7 @@ func deleteItemById(c *gin.Context) {
 	var result_item item
 	id := c.Param("id")
 	getDBConnection().Table("inventory").Delete(&item{}, id)
-	c.IndentedJSON(http.StatusOK, result_item)
+		c.IndentedJSON(http.StatusOK, result_item)
 }
 
 // patchItems             godoc
