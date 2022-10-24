@@ -32,7 +32,7 @@ type ResponseMessage struct {
 }
 
 // getItems      godoc
-// @Summary      Get items array
+// @Summary      Get all items from inventory.
 // @Description  Responds with the list of all items as JSON.
 // @Tags         items
 // @Produce      json
@@ -45,7 +45,7 @@ func getItems(c *gin.Context) {
 }
 
 // getItemById      godoc
-// @Summary      Get a single item by id
+// @Summary      Get a single item from inventory by id.
 // @Description  Returns the item whose id value matches the provided id.
 // @Tags         items
 // @Produce      json
@@ -67,7 +67,7 @@ func getItemById(c *gin.Context) {
 }
 
 // addItems             godoc
-// @Summary      Store a new item
+// @Summary      Add a new item to the inventory.
 // @Description  Takes a item JSON and store in DB. Return saved JSON.
 // @Tags         items
 // @Produce      json
@@ -95,7 +95,7 @@ func addItems(c *gin.Context) {
 }
 
 // deleteItemById             godoc
-// @Summary      Deletes an existing item by Id
+// @Summary      Delete an existing item from inventory by id.
 // @Description  Takes an id and deletes its value in DB.
 // @Tags         items
 // @Produce      json
@@ -118,7 +118,7 @@ func deleteItemById(c *gin.Context) {
 }
 
 // patchItems             godoc
-// @Summary      Update an existing item
+// @Summary      Update an existing item in inventory.
 // @Description  Takes a item JSON and updates its value in DB.
 // @Tags         items
 // @Produce      json
@@ -149,8 +149,8 @@ func patchItems(c *gin.Context) {
 }
 
 // getItemsAsCSV             godoc
-// @Summary      Downloads a csv file with existing data.
-// @Description  Downloads a csv file with existing data.
+// @Summary      Download CSV with all items from inventory.
+// @Description  Download CSV with all items from inventory.
 // @Tags         items
 // @Produce      text/csv
 // @Success      200   {text}  item

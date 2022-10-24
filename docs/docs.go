@@ -34,7 +34,7 @@ const docTemplate = `{
                 "tags": [
                     "items"
                 ],
-                "summary": "Get items array",
+                "summary": "Get all items from inventory.",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -55,7 +55,7 @@ const docTemplate = `{
                 "tags": [
                     "items"
                 ],
-                "summary": "Store a new item",
+                "summary": "Add a new item to the inventory.",
                 "parameters": [
                     {
                         "description": "item JSON",
@@ -79,14 +79,14 @@ const docTemplate = `{
         },
         "/items/csv": {
             "get": {
-                "description": "Downloads a csv file with existing data.",
+                "description": "Download CSV with all items from inventory.",
                 "produces": [
                     "text/csv"
                 ],
                 "tags": [
                     "items"
                 ],
-                "summary": "Downloads a csv file with existing data.",
+                "summary": "Download CSV with all items from inventory.",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -106,7 +106,7 @@ const docTemplate = `{
                 "tags": [
                     "items"
                 ],
-                "summary": "Get a single item by id",
+                "summary": "Get a single item from inventory by id.",
                 "parameters": [
                     {
                         "type": "integer",
@@ -133,7 +133,7 @@ const docTemplate = `{
                 "tags": [
                     "items"
                 ],
-                "summary": "Deletes an existing item by Id",
+                "summary": "Delete an existing item from inventory by id.",
                 "parameters": [
                     {
                         "type": "integer",
@@ -160,7 +160,7 @@ const docTemplate = `{
                 "tags": [
                     "items"
                 ],
-                "summary": "Update an existing item",
+                "summary": "Update an existing item in inventory.",
                 "parameters": [
                     {
                         "description": "item JSON",
