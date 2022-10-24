@@ -1,4 +1,4 @@
-# Coding-challenge
+# Coding Challenge
 
 ## Requirement
 
