@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/csv"
+	"errors"
 	"fmt"
 	"net/http"
 	"os"
@@ -13,6 +14,7 @@ import (
 	_ "github.com/sreeram-gsan/coding-challenge/docs"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"gorm.io/gorm"
 )
 
 // Struct to store the metadata of inventory table.
@@ -21,6 +23,11 @@ type item struct {
 	Name      string  `json:"name"`
 	Quantity  int32   `json:"quantity"`
 	UnitPrice float64 `json:"unit_price"`
+}
+
+// Struct to return response message.
+type ResponseMessage struct {
+	Message string
 }
 
 // getItems      godoc
@@ -45,10 +52,17 @@ func getItems(c *gin.Context) {
 // @Success      200  {object} item
 // @Router       /items/{id} [get]
 func getItemById(c *gin.Context) {
-	var result_item item
+	var result_item = item{}
 	id := c.Param("id")
-	getDBConnection().Table("inventory").First(&result_item, "id = ?", id)
-	c.IndentedJSON(http.StatusOK, result_item)
+	res := getDBConnection().Table("inventory").First(&result_item, "id = ?", id)
+
+	// If record is not found, return a message
+	err := res.Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		c.IndentedJSON(http.StatusOK, ResponseMessage{Message: "Record not found!"})
+	} else {
+		c.IndentedJSON(http.StatusOK, result_item)
+	}
 }
 
 // addItems             godoc
