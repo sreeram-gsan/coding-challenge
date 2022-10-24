@@ -51,6 +51,14 @@ func getItemById(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, result_item)
 }
 
+// addItems             godoc
+// @Summary      Store a new item
+// @Description  Takes a item JSON and store in DB. Return saved JSON.
+// @Tags         items
+// @Produce      json
+// @Param        item  body item  true  "item JSON"
+// @Success      200   {object}  item
+// @Router       /items [post]
 func addItems(c *gin.Context) {
 	var newItem item
 
@@ -73,6 +81,15 @@ func deleteItemById(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, result_item)
 }
 
+// patchItems             godoc
+// @Summary      Update an existing item
+// @Description  Takes a item JSON and updates its value in DB.
+// @Tags         items
+// @Produce      json
+// @Param        item  body item  true  "item JSON"
+// @Param        id  path integer true  "update item by id"
+// @Success      200   {object}  item
+// @Router       /items/{id} [patch]
 func patchItems(c *gin.Context) {
 	var updatedItem item
 	var existingItem item

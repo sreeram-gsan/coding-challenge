@@ -40,6 +40,25 @@ paths:
       summary: Get items array
       tags:
       - items
+    post:
+      description: Takes a item JSON and store in DB. Return saved JSON.
+      parameters:
+      - description: item JSON
+        in: body
+        name: item
+        required: true
+        schema:
+          $ref: '#/definitions/main.item'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.item'
+      summary: Store a new item
+      tags:
+      - items
   /items/{id}:
     get:
       description: Returns the item whose id value matches the provided id.
@@ -57,6 +76,30 @@ paths:
           schema:
             $ref: '#/definitions/main.item'
       summary: Get a single item by id
+      tags:
+      - items
+    patch:
+      description: Takes a item JSON and updates its value in DB.
+      parameters:
+      - description: item JSON
+        in: body
+        name: item
+        required: true
+        schema:
+          $ref: '#/definitions/main.item'
+      - description: update item by id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.item'
+      summary: Update an existing item
       tags:
       - items
 swagger: "2.0"

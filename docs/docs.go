@@ -46,6 +46,35 @@ const docTemplate = `{
                         }
                     }
                 }
+            },
+            "post": {
+                "description": "Takes a item JSON and store in DB. Return saved JSON.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "items"
+                ],
+                "summary": "Store a new item",
+                "parameters": [
+                    {
+                        "description": "item JSON",
+                        "name": "item",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/main.item"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.item"
+                        }
+                    }
+                }
             }
         },
         "/items/{id}": {
@@ -62,6 +91,42 @@ const docTemplate = `{
                     {
                         "type": "integer",
                         "description": "search item by id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.item"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "description": "Takes a item JSON and updates its value in DB.",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "items"
+                ],
+                "summary": "Update an existing item",
+                "parameters": [
+                    {
+                        "description": "item JSON",
+                        "name": "item",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/main.item"
+                        }
+                    },
+                    {
+                        "type": "integer",
+                        "description": "update item by id",
                         "name": "id",
                         "in": "path",
                         "required": true
