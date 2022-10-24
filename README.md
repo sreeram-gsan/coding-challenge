@@ -20,4 +20,5 @@ Create a simple CRUD app built with Go and Gin. This let you update track your i
 
 Your application should be packaged as docker container (and docker compose if you have multiple containers).
 
-## Documentation
+## Working Demo (Hosted in Linode)
+http://cc.sreeramganesan.com:8080/docs/index.html
